@@ -68,8 +68,18 @@ bool Inf_XO_Board::is_win(Player<char>* player) {
     return false;
 }
 
+bool Inf_XO_Board::isFull() {
+    for (auto& row : board)
+        for (auto& cell : row) {
+            if(cell == blank_symbol) {
+                return false;
+            }
+        }
+    return true;
+}
+
 bool Inf_XO_Board::is_draw(Player<char>* player) {
-    return (n_moves == 9 && !is_win(player));
+    return (isFull() && !is_win(player));
 }
 
 bool Inf_XO_Board::game_is_over(Player<char>* player) {

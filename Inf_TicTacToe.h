@@ -70,6 +70,7 @@ public:
      */
     bool game_is_over(Player<char>* player);
 
+    bool isFull();
 };
 
 
