@@ -1,40 +1,43 @@
 /**
- * @file XO_Demo.cpp
- * @brief Entry point for the FCAI X-O (Tic-Tac-Toe) game.
+* @file main.cpp
+ * @brief Entry point for the FCAI Game Hub.
  *
- * This file initializes the X-O game by creating the user interface, board, and players.
- * It then launches the game loop via the GameManager class.
- * All dynamically allocated objects are properly deleted at the end.
  */
 
-#include <iostream> // Required for input/output operations (cout, cin)
-#include <string>   // Required for string
-#include <vector>   // Required for vector
-#include <memory>   // Required for unique_ptr
+#include <iostream>
 
 #include "BoardGame_Classes.h"
 #include "Inf_TicTacToe.h"
+#include "Word_TicTacToe.h"
 using namespace std;
+
+template<typename T>
+void set_up(UI<T>* ui, Board<T>* board) {
+    Player<char>** players = ui->setup_players();
+    GameManager<char> inf_xo_game(board, players, ui);
+    inf_xo_game.run();
+    delete ui;
+    delete board;
+    for (int i = 0; i < 2; ++i) {
+        delete players[i];
+    }
+    delete[] players;
+}
 
 void menu() {
     cout<<"Welcome to Game Hub"<<"\n";
     cout<<"Choose a Game to play"<<"\n";
     cout<<"1 - Infinity Tic-Tac-Toe"<<"\n";
+    cout<<"2 - Word Tic-Tac-Toe"<<"\n";
     int choice;
     cin>>choice;
     switch (choice) {
         case 1: {
-            UI<char>* game_ui = new Inf_XO_UI();
-            Board<char>* inf_xo_board = new Inf_XO_Board();
-            Player<char>** players = game_ui->setup_players();
-            GameManager<char> inf_xo_game(inf_xo_board, players, game_ui);
-            inf_xo_game.run();
-            delete game_ui;
-            delete inf_xo_board;
-            for (int i = 0; i < 2; ++i) {
-                delete players[i];
-            }
-            delete[] players;
+            set_up(new Inf_XO_UI(), new Inf_XO_Board());
+            break;
+        }
+        case 2: {
+            set_up(new word_XO_UI(), new word_XO_Board());
             break;
         }
         default:
