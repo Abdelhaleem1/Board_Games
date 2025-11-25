@@ -8,6 +8,7 @@
 
 #include "BoardGame_Classes.h"
 #include "Inf_TicTacToe.h"
+#include "obs_TicTacToe.h"
 #include "Word_TicTacToe.h"
 using namespace std;
 
@@ -29,6 +30,7 @@ void menu() {
     cout<<"Choose a Game to play"<<"\n";
     cout<<"1 - Infinity Tic-Tac-Toe"<<"\n";
     cout<<"2 - Word Tic-Tac-Toe"<<"\n";
+    cout<<"3 - Obstacles Tic-Tac-Toe"<<"\n";
     int choice;
     cin>>choice;
     switch (choice) {
@@ -38,6 +40,10 @@ void menu() {
         }
         case 2: {
             set_up(new word_XO_UI(), new word_XO_Board());
+            break;
+        }
+        case 3: {
+            set_up(new obs_TicTacToe_UI(), new obs_TicTacToe_board());
             break;
         }
         default:

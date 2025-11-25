@@ -1,8 +1,6 @@
 //--------------------------------------- IMPLEMENTATION
 
-#include <iostream>
-#include <iomanip>
-#include <cctype>  // for toupper()
+#include <bits/stdc++.h>
 #include "Inf_TicTacToe.h"
 
 using namespace std;
@@ -104,7 +102,15 @@ Move<char>* Inf_XO_UI::get_move(Player<char>* player) {
 
     if (player->get_type() == PlayerType::HUMAN) {
         cout << "\n"<< player->get_name() <<"(" << player->get_symbol() <<")" <<", please enter your move x and y (0 to 2): ";
-        cin >> x >> y;
+        while (true) {
+            cin >> x >> y;
+            if (cin.fail()){
+                cout << "Invalid input! Please enter a number\n";
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            }
+            else break;
+        }
     }
     else if (player->get_type() == PlayerType::COMPUTER) {
         x = rand() % player->get_board_ptr()->get_rows();
