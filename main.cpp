@@ -10,6 +10,7 @@
 #include "Inf_TicTacToe.h"
 #include "obs_TicTacToe.h"
 #include "Word_TicTacToe.h"
+#include "Inverse_TicTacToe.h"
 using namespace std;
 
 template<typename T>
@@ -31,6 +32,7 @@ void menu() {
     cout<<"1 - Infinity Tic-Tac-Toe"<<"\n";
     cout<<"2 - Word Tic-Tac-Toe"<<"\n";
     cout<<"3 - Obstacles Tic-Tac-Toe"<<"\n";
+    cout<<"4 - Inverse Tic-Tac-Toe<<"\n";
     int choice;
     cin>>choice;
     switch (choice) {
