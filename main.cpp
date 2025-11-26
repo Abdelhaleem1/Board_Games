@@ -48,6 +48,10 @@ void menu() {
             set_up(new obs_TicTacToe_UI(), new obs_TicTacToe_board());
             break;
         }
+        case 4: {
+            set_up(new Inverse_TicTacToe_UI(), new Inverse_TicTacToe_Board());
+            break;
+        }
         default:
             cout<<"Invalid Option"<<"\n";
     }
