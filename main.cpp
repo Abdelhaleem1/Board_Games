@@ -17,6 +17,8 @@
 #include "Inverse_TicTacToe.h"
 #include "Inverse_XO_UI.h"
 #include "SUS.h"
+#include "TIC_TAC_TOE_4X4.h"
+#include "NUMERICAL_TIC_TAC_TOE.h""
 using namespace std;
 
 template<typename T>
@@ -40,6 +42,8 @@ void menu() {
     cout<<"3- Obstacles Tic-Tac-Toe"<<"\n";
     cout<<"4- Inverse Tic-Tac-Toe"<<"\n";
     cout<<"5- SUS Game" << "\n";
+    cout<<"6- Tic_Tac_Toe_4X4"<<"\n";
+    cout<<"7- NUMERICAL Tic_Tac_Toe"<<"\n";
     int choice;
     cin>>choice;
     switch (choice) {
@@ -61,6 +65,14 @@ void menu() {
         }
         case 5: {
             set_up(new SUS_UI(), new SUS_Board());
+            break;
+        }
+        case 6: {
+            set_up(new XO_4x4_UI(), new XO_4x4_Board());
+            break;
+        }
+        case 7: {
+            set_up(new Numerical_XO_UI(), new Numerical_XO_Board());
             break;
         }
         default:
