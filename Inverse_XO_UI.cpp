@@ -6,9 +6,7 @@
 
 using namespace std;
 
-Inverse_XO_UI::Inverse_XO_UI() : XO_UI() {
-    display_message("Inverse (Misère) Tic-Tac-Toe: Avoid creating three-in-a-row — you lose if you do.");
-}
+Inverse_XO_UI::Inverse_XO_UI() : UI<char> ("Inverse (Misere) Tic-Tac-Toe: Avoid creating three-in-a-row, you lose if you do.", 3) {}
 
 Player<char>* Inverse_XO_UI::create_player(string& name, char symbol, PlayerType type) {
     cout << "(Inverse) Creating " << (type == PlayerType::HUMAN ? "human" : "computer")

@@ -1,14 +1,14 @@
 #ifndef _INVERSE_XO_UI_H
 #define _INVERSE_XO_UI_H
 
-#include "XO_Classes.h"
+#include "BoardGame_Classes.h"
 // #include "..\..\..\Downloads\BoardGameFramework-v2.3\Inverse_TicTacToe.h"
 #include <vector>
 
-class Inverse_XO_UI : public XO_UI {
+class Inverse_XO_UI : public UI<char> {
 public:
     Inverse_XO_UI();
-    ~Inverse_XO_UI() override {}
+    ~Inverse_XO_UI() override {};
 
     Player<char>* create_player(std::string& name, char symbol, PlayerType type) override;
     Move<char>* get_move(Player<char>* player) override;

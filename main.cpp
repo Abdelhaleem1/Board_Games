@@ -8,21 +8,20 @@
  */
 
 #include <iostream>
-#include <string> 
-#include <vector>
-#include <memory> 
 #include <ctime> 
 
 #include "BoardGame_Classes.h"
-#include "XO_Classes.h"
+#include "Inf_TicTacToe.h"
+#include "Word_TicTacToe.h"
+#include "obs_TicTacToe.h"
 #include "Inverse_TicTacToe.h"
 #include "Inverse_XO_UI.h"
 using namespace std;
 
 template<typename T>
 void set_up(UI<T>* ui, Board<T>* board) {
-    Player<char>** players = ui->setup_players();
-    GameManager<char> inf_xo_game(board, players, ui);
+    Player<T>** players = ui->setup_players();
+    GameManager<T> inf_xo_game(board, players, ui);
     inf_xo_game.run();
     delete ui;
     delete board;
@@ -38,7 +37,7 @@ void menu() {
     cout<<"1 - Infinity Tic-Tac-Toe"<<"\n";
     cout<<"2 - Word Tic-Tac-Toe"<<"\n";
     cout<<"3 - Obstacles Tic-Tac-Toe"<<"\n";
-    cout<<"4 - Inverse Tic-Tac-Toe<<"\n";
+    cout<<"4 - Inverse Tic-Tac-Toe"<<"\n";
     int choice;
     cin>>choice;
     switch (choice) {
@@ -55,7 +54,7 @@ void menu() {
             break;
         }
         case 4: {
-            set_up(new Inverse_XO_UI(), new Inverse_XO_Board());
+            set_up(new Inverse_XO_UI(), new InverseTicTacToe<char>());
             break;
         }
         default:
