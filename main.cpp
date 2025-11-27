@@ -16,6 +16,7 @@
 #include "obs_TicTacToe.h"
 #include "Inverse_TicTacToe.h"
 #include "Inverse_XO_UI.h"
+#include "SUS.h"
 using namespace std;
 
 template<typename T>
@@ -34,10 +35,11 @@ void set_up(UI<T>* ui, Board<T>* board) {
 void menu() {
     cout<<"Welcome to Game Hub"<<"\n";
     cout<<"Choose a Game to play"<<"\n";
-    cout<<"1 - Infinity Tic-Tac-Toe"<<"\n";
-    cout<<"2 - Word Tic-Tac-Toe"<<"\n";
-    cout<<"3 - Obstacles Tic-Tac-Toe"<<"\n";
-    cout<<"4 - Inverse Tic-Tac-Toe"<<"\n";
+    cout<<"1- Infinity Tic-Tac-Toe"<<"\n";
+    cout<<"2- Word Tic-Tac-Toe"<<"\n";
+    cout<<"3- Obstacles Tic-Tac-Toe"<<"\n";
+    cout<<"4- Inverse Tic-Tac-Toe"<<"\n";
+	cout<<"5- SUS Game" << "\n";
     int choice;
     cin>>choice;
     switch (choice) {
@@ -57,6 +59,8 @@ void menu() {
             set_up(new Inverse_XO_UI(), new InverseTicTacToe<char>());
             break;
         }
+		case 5: {
+			set_up(new SUS_UI(), new SUS_Board());
         default:
             cout<<"Invalid Option"<<"\n";
     }
