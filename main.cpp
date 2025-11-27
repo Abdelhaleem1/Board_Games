@@ -1,16 +1,22 @@
 /**
-* @file main.cpp
- * @brief Entry point for the FCAI Game Hub.
+ * @file XO_Demo.cpp
+ * @brief Entry point for the FCAI X-O (Tic-Tac-Toe) game.
  *
+ * This file initializes the X-O game by creating the user interface, board, and players.
+ * It then launches the game loop via the GameManager class.
+ * All dynamically allocated objects are properly deleted at the end.
  */
 
 #include <iostream>
+#include <string> 
+#include <vector>
+#include <memory> 
+#include <ctime> 
 
 #include "BoardGame_Classes.h"
-#include "Inf_TicTacToe.h"
-#include "obs_TicTacToe.h"
-#include "Word_TicTacToe.h"
+#include "XO_Classes.h"
 #include "Inverse_TicTacToe.h"
+#include "Inverse_XO_UI.h"
 using namespace std;
 
 template<typename T>
@@ -49,7 +55,7 @@ void menu() {
             break;
         }
         case 4: {
-            set_up(new Inverse_TicTacToe_UI(), new Inverse_TicTacToe_Board());
+            set_up(new Inverse_XO_UI(), new Inverse_XO_Board());
             break;
         }
         default:
