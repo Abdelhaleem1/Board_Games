@@ -4,7 +4,7 @@
 #include "BoardGame_Classes.h"
 
 /**
- * @brief Inverse (Misère) Tic-Tac-Toe.
+ * @brief Inverse (MisÃ¨re) Tic-Tac-Toe.
  *
  * Rules implemented:
  * - Standard 3x3 board.
