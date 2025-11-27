@@ -22,8 +22,8 @@ using namespace std;
 template<typename T>
 void set_up(UI<T>* ui, Board<T>* board) {
     Player<T>** players = ui->setup_players();
-    GameManager<T> inf_xo_game(board, players, ui);
-    inf_xo_game.run();
+    GameManager<T> gameManger(board, players, ui);
+    gameManger.run();
     delete ui;
     delete board;
     for (int i = 0; i < 2; ++i) {
@@ -39,7 +39,7 @@ void menu() {
     cout<<"2- Word Tic-Tac-Toe"<<"\n";
     cout<<"3- Obstacles Tic-Tac-Toe"<<"\n";
     cout<<"4- Inverse Tic-Tac-Toe"<<"\n";
-	cout<<"5- SUS Game" << "\n";
+    cout<<"5- SUS Game" << "\n";
     int choice;
     cin>>choice;
     switch (choice) {
@@ -59,12 +59,13 @@ void menu() {
             set_up(new Inverse_XO_UI(), new InverseTicTacToe<char>());
             break;
         }
-		case 5: {
-			set_up(new SUS_UI(), new SUS_Board());
+        case 5: {
+            set_up(new SUS_UI(), new SUS_Board());
+            break;
+        }
         default:
             cout<<"Invalid Option"<<"\n";
-    }
-
+        }
 }
 
 

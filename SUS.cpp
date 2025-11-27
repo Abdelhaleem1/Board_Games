@@ -1,6 +1,4 @@
-#include <iostream>
-#include <cctype>
-#include <algorithm>
+#include <bits/stdc++.h>
 #include "SUS.h"
 
 using namespace std;
