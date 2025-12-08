@@ -20,6 +20,7 @@
 #include "TIC_TAC_TOE_4X4.h"
 #include "NUMERICAL_TIC_TAC_TOE.h""
 #include "TicTacToe_5x5.h"
+#include "Pyramid_Tic_Tac_Toe.h"
 using namespace std;
 
 template<typename T>
@@ -46,6 +47,7 @@ void menu() {
     cout<<"6- Tic_Tac_Toe_4X4"<<"\n";
     cout<<"7- NUMERICAL Tic_Tac_Toe"<<"\n";
     cout<<"8- 5x5 Tic-Tac-Toe"<<"\n";
+    cout<<"9- Pyramid Tic_Tac_Toe"<<"\n";
     int choice;
     cin>>choice;
     switch (choice) {
@@ -79,6 +81,10 @@ void menu() {
         }
         case 8: {
             set_up(new TicTacToe_5x5_UI, new TicTacToe_5x5_board());
+            break;
+        }
+        case 9: {
+            set_up(new Pyramid_XO_UI, new Pyramid_XO_Board());
             break;
         }
         default:
