@@ -21,6 +21,8 @@
 #include "NUMERICAL_TIC_TAC_TOE.h""
 #include "TicTacToe_5x5.h"
 #include "Pyramid_Tic_Tac_Toe.h"
+#include "connect4.h"
+#include "Memory.h"
 using namespace std;
 
 template<typename T>
@@ -48,6 +50,8 @@ void menu() {
     cout<<"7- NUMERICAL Tic_Tac_Toe"<<"\n";
     cout<<"8- 5x5 Tic-Tac-Toe"<<"\n";
     cout<<"9- Pyramid Tic_Tac_Toe"<<"\n";
+	cout<<"10- Connect 4" << "\n";
+	cout<<"11- Memory Tic-Tac-Toe" << "\n";
     int choice;
     cin>>choice;
     switch (choice) {
@@ -87,6 +91,15 @@ void menu() {
             set_up(new Pyramid_XO_UI, new Pyramid_XO_Board());
             break;
         }
+        case 10: {
+            set_up(new CONNECT_UI(), new CONNECT_Board());
+            break;
+        }
+        case 11: {
+            set_up(new Memory_UI(), new Memory_Board());
+            break;
+        }
+        
         default:
             cout<<"Invalid Option"<<"\n";
         }
