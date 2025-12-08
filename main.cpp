@@ -19,6 +19,7 @@
 #include "SUS.h"
 #include "TIC_TAC_TOE_4X4.h"
 #include "NUMERICAL_TIC_TAC_TOE.h""
+#include "TicTacToe_5x5.h"
 using namespace std;
 
 template<typename T>
@@ -44,6 +45,7 @@ void menu() {
     cout<<"5- SUS Game" << "\n";
     cout<<"6- Tic_Tac_Toe_4X4"<<"\n";
     cout<<"7- NUMERICAL Tic_Tac_Toe"<<"\n";
+    cout<<"8- 5x5 Tic-Tac-Toe"<<"\n";
     int choice;
     cin>>choice;
     switch (choice) {
@@ -73,6 +75,10 @@ void menu() {
         }
         case 7: {
             set_up(new Numerical_XO_UI(), new Numerical_XO_Board());
+            break;
+        }
+        case 8: {
+            set_up(new TicTacToe_5x5_UI, new TicTacToe_5x5_board());
             break;
         }
         default:
