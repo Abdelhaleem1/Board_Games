@@ -23,6 +23,10 @@
 #include "Pyramid_Tic_Tac_Toe.h"
 #include "connect4.h"
 #include "Memory.h"
+#include "Diamond_TicTacToe.h"
+#include "Diamond_UI.h"
+#include "Ultimate_TicTacToe.h"
+#include "Ultimate_UI.h"
 using namespace std;
 
 template<typename T>
@@ -54,6 +58,8 @@ void menu() {
         cout<<"9- Pyramid Tic_Tac_Toe"<<"\n";
         cout<<"10- Connect 4" << "\n";
         cout<<"11- Memory Tic-Tac-Toe" << "\n";
+        cout<<"12- Diamond Tic-Tac-Toe"<< "\n";
+        cout<<"13- Ultimate Tic-Tac-Toe"<< "\n";
         cout<<"0- Exit\n";
         cout<<"=============================\n";
         cin>>choice;
@@ -102,6 +108,12 @@ void menu() {
             case 11: {
                 set_up(new Memory_UI(), new Memory_Board());
                 break;
+            }
+            case 12: {
+                set_up(new Diamond_UI(), new display_board_matrix());
+            }
+            case 13:{
+                set_up(new Ultimate_UI(), new display_board_matrix());
             }
             default:
                 cout<<"Invalid Option"<<"\n";
