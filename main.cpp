@@ -47,73 +47,75 @@ void menu() {
     while(choice != 0) {
         cout<<"\n=============================\n";
         cout<<"Choose a Game to play: "<<"\n";
-        cout<<"1- Infinity Tic-Tac-Toe"<<"\n";
-        cout<<"2- Word Tic-Tac-Toe"<<"\n";
-        cout<<"3- Obstacles Tic-Tac-Toe"<<"\n";
-        cout<<"4- Inverse Tic-Tac-Toe"<<"\n";
-        cout<<"5- SUS Game" << "\n";
-        cout<<"6- Tic_Tac_Toe_4X4"<<"\n";
-        cout<<"7- NUMERICAL Tic_Tac_Toe"<<"\n";
-        cout<<"8- 5x5 Tic-Tac-Toe"<<"\n";
-        cout<<"9- Pyramid Tic_Tac_Toe"<<"\n";
-        cout<<"10- Connect 4" << "\n";
-        cout<<"11- Memory Tic-Tac-Toe" << "\n";
-        cout<<"12- Diamond Tic-Tac-Toe"<< "\n";
-        cout<<"13- Ultimate Tic-Tac-Toe"<< "\n";
+        cout<<"1- SUS Game" << "\n";
+        cout<<"2- Connect 4" << "\n";
+        cout<<"3- 5x5 Tic-Tac-Toe"<<"\n";
+        cout<<"4- Word Tic-Tac-Toe"<<"\n";
+        cout<<"5- Inverse Tic-Tac-Toe"<<"\n";
+        cout<<"6- Diamond Tic-Tac-Toe"<< "\n";
+        cout<<"7- Tic_Tac_Toe_4X4"<<"\n";
+        cout<<"8- Pyramid Tic_Tac_Toe"<<"\n";
+        cout<<"9- NUMERICAL Tic_Tac_Toe"<<"\n";
+        cout<<"10- Obstacles Tic-Tac-Toe"<<"\n";
+        cout<<"11- Infinity Tic-Tac-Toe"<<"\n";
+        cout<<"12- Ultimate Tic-Tac-Toe"<< "\n";
+        cout<<"13- Memory Tic-Tac-Toe" << "\n";
         cout<<"0- Exit\n";
         cout<<"=============================\n";
         cin>>choice;
         switch (choice) {
             case 0: break;
             case 1: {
-                set_up(new Inf_XO_UI(), new Inf_XO_Board());
-                break;
-            }
-            case 2: {
-                set_up(new word_XO_UI(), new word_XO_Board());
-                break;
-            }
-            case 3: {
-                set_up(new obs_TicTacToe_UI(), new obs_TicTacToe_board());
-                break;
-            }
-            case 4: {
-                set_up(new Inverse_XO_UI(), new InverseTicTacToe<char>());
-                break;
-            }
-            case 5: {
                 set_up(new SUS_UI(), new SUS_Board());
                 break;
             }
-            case 6: {
-                set_up(new XO_4x4_UI(), new XO_4x4_Board());
-                break;
-            }
-            case 7: {
-                set_up(new Numerical_XO_UI(), new Numerical_XO_Board());
-                break;
-            }
-            case 8: {
-                set_up(new TicTacToe_5x5_UI, new TicTacToe_5x5_board());
-                break;
-            }
-            case 9: {
-                set_up(new Pyramid_XO_UI, new Pyramid_XO_Board());
-                break;
-            }
-            case 10: {
+            case 2: {
                 set_up(new CONNECT_UI(), new CONNECT_Board());
                 break;
             }
+            case 3: {
+                set_up(new TicTacToe_5x5_UI, new TicTacToe_5x5_board());
+                break;
+            }
+            case 4: {
+                set_up(new word_XO_UI(), new word_XO_Board());
+                break;
+            }
+            case 5: {
+                set_up(new Inverse_XO_UI(), new InverseTicTacToe<char>());
+                break;
+            }
+            case 6: {
+                set_up(new Diamond_UI(), new DiamondTicTacToe<char>());
+                break;
+            }
+            case 7: {
+                set_up(new XO_4x4_UI(), new XO_4x4_Board());
+                break;
+            }
+            case 8: {
+                set_up(new Pyramid_XO_UI, new Pyramid_XO_Board());
+                break;
+            }
+            case 9: {
+                set_up(new Numerical_XO_UI(), new Numerical_XO_Board());
+                break;
+            }
+            case 10: {
+                set_up(new obs_TicTacToe_UI(), new obs_TicTacToe_board());
+                break;
+            }
             case 11: {
-                set_up(new Memory_UI(), new Memory_Board());
+                set_up(new Inf_XO_UI(), new Inf_XO_Board());
                 break;
             }
             case 12: {
-                set_up(new Diamond_UI(), new display_board_matrix());
+                set_up(new Ultimate_UI(), new UltimateTicTacToe<char>());
+                break;
             }
-            case 13:{
-                set_up(new Ultimate_UI(), new display_board_matrix());
+            case 13: {
+                set_up(new Memory_UI(), new Memory_Board());
+                break;
             }
             default:
                 cout<<"Invalid Option"<<"\n";
