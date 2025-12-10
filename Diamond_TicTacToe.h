@@ -19,7 +19,7 @@
 template <typename T>
 class DiamondTicTacToe : public Board<T> {
 public:
-    DiamondTicTacToe(T empty_cell = static_cast<T>(' '))
+    DiamondTicTacToe(T empty_cell = static_cast<T>(' ')):
         Board<T>(5, 5), empty_marker(empty_cell) {
             valid_cell_count = 0;
             for (int r = 0; r < this->rows; ++r) {
