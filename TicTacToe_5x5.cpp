@@ -63,7 +63,7 @@ void TicTacToe_5x5_board::consecutive_cells(char symbol) {
         if(symbol == 'X') cntX+= (cnt>=3) ? cnt-2 : 0;
         else cntO+= (cnt>=3) ? cnt-2 : 0;
     }
-    //
+    // Main diagonals (top-left to bottom-right) starting from top row
     for(int start = 0 ;start<=2;start++) {
         int cnt=0;
         for(int i=0, j = start; i<get_rows() && j<get_columns();i++, j++) {
@@ -79,7 +79,7 @@ void TicTacToe_5x5_board::consecutive_cells(char symbol) {
         else cntO+= (cnt>=3) ? cnt-2 : 0;
     }
 
-
+    // Main diagonals starting from left column (below top-left)
     for(int start = 1 ;start<=2;start++) {
         int cnt=0;
         for(int i=start, j = 0; i<get_rows() && j<get_columns();i++, j++) {
@@ -94,7 +94,7 @@ void TicTacToe_5x5_board::consecutive_cells(char symbol) {
         if(symbol == 'X') cntX+= (cnt>=3) ? cnt-2 : 0;
         else cntO+= (cnt>=3) ? cnt-2 : 0;
     }
-
+    // Anti-diagonals (top-right to bottom-left) starting from top row
     for(int start = 4 ;start>=2;start--) {
         int cnt=0;
         for(int i=0, j = start; i<get_rows() && j>=0 ;i++, j--) {
@@ -110,6 +110,7 @@ void TicTacToe_5x5_board::consecutive_cells(char symbol) {
         else cntO+= (cnt>=3) ? cnt-2 : 0;
     }
 
+    // Anti-diagonals starting from right column (below top-right)
     for(int start = 1 ;start<=2;start++) {
         int cnt=0;
         for(int i=start, j = 4; i<get_rows() && j>=0 ;i++, j--) {

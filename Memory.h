@@ -1,5 +1,4 @@
-#ifndef Memory_H
-#define Memory_H
+#pragma once
 
 #include "BoardGame_Classes.h"
 
@@ -26,5 +25,4 @@ public:
     void display_board_matrix(const vector<vector<char>>& matrix) const;
 };
 
-#endif #pragma once
 

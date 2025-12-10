@@ -1,5 +1,4 @@
-#ifndef CONNECT4_H
-#define CONNECT4_H
+#pragma once
 
 #include "BoardGame_Classes.h"
 
@@ -27,4 +26,3 @@ public:
     Move<char>* get_move(Player<char>* player) override;
 };
 
-#endif #pragma once

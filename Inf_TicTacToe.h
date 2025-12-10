@@ -70,6 +70,10 @@ public:
      */
     bool game_is_over(Player<char>* player);
 
+    /**
+     * @brief Checks if all cells on the board are filled.
+     * @return true if no blank cells remain, false otherwise
+     */
     bool isFull();
 };
 

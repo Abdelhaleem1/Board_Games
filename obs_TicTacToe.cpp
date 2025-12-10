@@ -30,9 +30,12 @@ bool obs_TicTacToe_board::update_board(Move<char>* move) {
         else { // Apply move
             n_moves++;
             board[x][y] = toupper(mark);
+            // Remove used coordinate from available list
             auto it = find(coordinates.begin(), coordinates.end(), make_pair(x, y));
             if (it != coordinates.end()) coordinates.erase(it);
+            // Place random obstacles after move
             random_obs();
+            // Track last move position for win checking
             last_row_play =x;
             last_col_play =y;
         }
@@ -51,7 +54,7 @@ void obs_TicTacToe_board::random_obs() {
     }
 }
 
-int obs_TicTacToe_board::check_win(int x, int y, int dr, int dc, char sym) {
+int obs_TicTacToe_board::dir_cnt(int x, int y, int dr, int dc, char sym) {
     int count = 0;
     int r = x + dr;
     int c = y + dc;
@@ -69,13 +72,17 @@ bool obs_TicTacToe_board::is_win(Player<char>* player) {
     const char sym = player->get_symbol();
     int x = last_row_play;
     int y = last_col_play;
-    if (check_win(x, y, 0, -1, sym) + check_win(x, y, 0, 1, sym) + 1 >= 4)
+    // Check horizontal (left + right + center)
+    if (dir_cnt(x, y, 0, -1, sym) + dir_cnt(x, y, 0, 1, sym) + 1 >= 4)
         return true;
-    if (check_win(x, y, -1, 0, sym) + check_win(x, y, 1, 0, sym) + 1 >= 4)
+    // Check vertical (up + down + center)
+    if (dir_cnt(x, y, -1, 0, sym) + dir_cnt(x, y, 1, 0, sym) + 1 >= 4)
         return true;
-    if (check_win(x, y, -1, -1, sym) + check_win(x, y, 1, 1, sym) + 1 >= 4)
-    return true;
-    if (check_win(x, y, -1, 1, sym) + check_win(x, y, 1, -1, sym) + 1 >= 4)
+    // Check main diagonal (top-left + bottom-right + center)
+    if (dir_cnt(x, y, -1, -1, sym) + dir_cnt(x, y, 1, 1, sym) + 1 >= 4)
+        return true;
+    // Check anti-diagonal (top-right + bottom-left + center)
+    if (dir_cnt(x, y, -1, 1, sym) + dir_cnt(x, y, 1, -1, sym) + 1 >= 4)
         return true;
     return false;
 }

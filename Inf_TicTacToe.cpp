@@ -33,6 +33,7 @@ bool Inf_XO_Board::update_board(Move<char>* move) {
             n_moves++;
             board[x][y] = toupper(mark);
 
+            // remove the very first play on the board after 3 moves
             if( n_moves >= 3 && !((n_moves)%3)) {
                 board[Coordinates[0].first][Coordinates[0].second] = blank_symbol;
                 Coordinates.pop_front();
